@@ -1,0 +1,13 @@
+.main {
+  display: flex;
+  justify-content: center;
+  min-width: 1014px;
+}
+
+.mainContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1014px;
+}

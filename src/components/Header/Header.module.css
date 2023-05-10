@@ -1,0 +1,94 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  min-width: 1014px;
+  box-shadow: 0px 1px 2px 0px #0a4559;
+}
+
+.headerChild {
+  align-items: center;
+  display: flex;
+  height: 72px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1014px;
+}
+
+.headerItemOne {
+  display: flex;
+  align-items: center;
+}
+
+.logoLink {
+  display: flex;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.keyWord {
+  color: #5a5e66;
+  color: var(--color-content-secondary);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  width: 113px;
+}
+
+.headerItemTwo {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.headerItemTwoItem {
+  display: flex;
+}
+
+.searchButton {
+  border: 1px solid transparent;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+}
+
+.searchButtonText {
+  color: #1e1f24;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.searchButtonImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerItemThree {
+  display: flex;
+  grid-area: 1rem;
+}
+
+.parking {
+  display: flex;
+  margin-right: 1rem;
+  align-items: center;
+}
+
+.loginButton {
+  display: flex;
+}
+
+.login {
+  border: 1px solid transparent;
+  background-color: #0a4559;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+  border-radius: 10px;
+}
