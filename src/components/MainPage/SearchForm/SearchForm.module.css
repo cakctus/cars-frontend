@@ -2,21 +2,22 @@
   margin-top: -80px;
   z-index: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-start;
   background-color: #fffffe;
   border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .searchBy {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-  margin-right: 1rem;
   border-right: 1px solid silver;
 }
 
 .searchBy > div {
-  padding: 10px;
+  padding: 5px;
   border-bottom: 1px solid silver;
 }
 
@@ -25,7 +26,9 @@
 }
 
 .search {
-  padding: 0.8rem;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 1rem;
 }
 
 .searchContainer {
@@ -87,7 +90,7 @@ input {
   -o-transition: all 0.1s ease-out;
   transition: all 0.1s ease-out;
   width: 160px;
-  height: 1.5rem;
+  height: 1.3rem;
   appearance: none;
 }
 

@@ -1,8 +1,7 @@
-import React from "react"
 import styles from "./Main.module.css"
-import MainPic from "../../pics/main_pic.jpg"
 import SearchForm from "./SearchForm/SearchForm"
 import MainBg from "./MainBg/MainBg"
+import MainArticles from "./MainArticles/MainArticles"
 
 type Props = {}
 
@@ -13,6 +12,7 @@ const MainPage = (props: Props) => {
       <div className={styles.main}>
         <main className={styles.mainContainer}>
           <SearchForm />
+          <MainArticles />
         </main>
       </div>
     </>

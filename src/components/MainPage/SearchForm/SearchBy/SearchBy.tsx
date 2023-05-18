@@ -1,9 +1,9 @@
 import React from "react"
 import styles from "../SearchForm.module.css"
-import CarImg from "../CarImg"
-import MotoImg from "../MotoImg"
-import BusImg from "../BusImg"
-import TruckImg from "../TruckImg"
+import CarImg from "./CarImg"
+import MotoImg from "./MotoImg"
+import BusImg from "./BusImg"
+import TruckImg from "./TruckImg"
 
 type Props = {}
 

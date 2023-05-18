@@ -1,0 +1,14 @@
+.mainArticles {
+  background-color: #ffecdb;
+  margin-top: 3rem;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  width: 100%;
+}
+
+.mainArticlesContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}

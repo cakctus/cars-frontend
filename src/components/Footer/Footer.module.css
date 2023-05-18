@@ -1,0 +1,128 @@
+.footer {
+  background-color: rgb(16, 17, 20);
+  padding-bottom: 5rem;
+  color: rgb(131, 136, 143);
+  min-width: 1014px;
+  font-family: "Nunito", sans-serif;
+}
+
+.footerSection {
+  margin: 0 auto;
+  max-width: 1014px;
+  padding: 10px;
+}
+
+.footerContainer {
+  display: flex;
+  gap: 5rem;
+}
+
+.intro {
+  margin-bottom: 1rem;
+}
+
+.socials {
+  margin-bottom: 1rem;
+}
+
+.social {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footerItem {
+  padding: 1rem;
+}
+
+.one {
+  width: 30%;
+}
+
+.two {
+  width: 85%;
+}
+
+.searchItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelTitle {
+  margin-bottom: 5px;
+}
+
+.placeHolderTitle {
+  margin: 5px auto;
+  padding-left: 10px;
+}
+
+.searchInline {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgb(90, 94, 102);
+  border: 1px solid rgb(90, 94, 102);
+}
+
+.searchInlineOne {
+  color: white;
+  width: 85%;
+  height: 100%;
+  border-right: 1px solid silver;
+  background-color: rgb(90, 94, 102);
+}
+
+.searchInlineTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}
+
+.placeHolderTitle {
+  border: 1px solid rgb(90, 94, 102);
+  border: 1px solid var(--FormSelect-border);
+  color: #1e1f24;
+  color: var(--color-content-lead);
+  transition: all 0.1s ease-out;
+  appearance: none;
+
+  background-color: rgb(90, 94, 102);
+}
+
+select:focus,
+input:focus {
+  outline: none;
+}
+
+.FooterLinkTitle {
+  margin-bottom: 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.footerLinksContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 1 auto;
+  gap: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.footerLinksBlock {
+  margin: 0;
+  padding: 0;
+}
+
+.footerLinkItem {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.textWidt {
+  width: 150px;
+}

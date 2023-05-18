@@ -1,0 +1,21 @@
+.container {
+  margin-top: 1.5rem;
+}
+
+.vehicle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.vehicleType {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.change {
+  font-size: 0.9rem;
+  color: red;
+  text-decoration: underline;
+}
