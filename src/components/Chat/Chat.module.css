@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-columns: 25% 75%;
+
+  @media screen and (min-width: 720px) and (max-width: 1080px) {
+    grid-template-columns: 35% 65%;
+  }
+}
+
+.userList {
+  margin: 1rem;
+}
+
+.userItem {
+  padding: 1rem;
+  border: 1px silver solid;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.chatInput {
+  border: 1px solid silver;
+  width: 250px;
+  height: 30px;
+}

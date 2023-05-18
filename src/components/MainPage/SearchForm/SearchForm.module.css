@@ -79,7 +79,7 @@
   background-color: #dfdfe0;
 }
 
-select,
+/* select,
 input {
   background: var(--FormSelect-background);
   border: 1px solid #b5b9bf;
@@ -97,4 +97,4 @@ input {
 select:focus,
 input:focus {
   outline: none;
-}
+} */

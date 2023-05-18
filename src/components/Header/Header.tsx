@@ -1,8 +1,10 @@
-import React from "react"
 import styles from "./Header.module.css"
-import Logo from "./Logo"
-import Arrow from "./Arrow"
-import Parking from "./Parking"
+import Logo from "./pics/Logo"
+import Arrow from "./pics/Arrow"
+import Parking from "./pics/Parking"
+import Message from "./pics/Message"
+import Profile from "./pics/Profile"
+import { spawn } from "child_process"
 
 type Props = {}
 
@@ -54,17 +56,43 @@ const Header = (props: Props) => {
               </div>
             </div>
           </div>
-
-          <div className={styles.headerItemThree}>
+          {localStorage.getItem("token") ? (
+            <div className={styles.headerItemThree}>
+              <div className={styles.parking}>
+                <Parking />
+              </div>
+              <div className={styles.parking}>
+                <Message />
+              </div>
+              <div className={styles.parking}>
+                <Profile />
+                <Arrow />
+              </div>
+            </div>
+          ) : (
+            <div className={styles.loginButton}>
+              <button className={styles.login}>
+                <span className={styles.loginText}>Login</span>
+              </button>
+            </div>
+          )}
+          {/* <div className={styles.headerItemThree}>
             <div className={styles.parking}>
               <Parking />
+            </div>
+            <div className={styles.parking}>
+              <Message />
+            </div>
+            <div className={styles.parking}>
+              <Profile />
+              <Arrow />
             </div>
             <div className={styles.loginButton}>
               <button className={styles.login}>
                 <span className={styles.loginText}>Login</span>
               </button>
             </div>
-          </div>
+          </div> */}
         </nav>
       </header>
     </>

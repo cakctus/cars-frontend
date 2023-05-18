@@ -42,6 +42,7 @@ export const loginSlice = createAsyncThunk<any, any>(
       const response = await authService.login(email, password)
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken)
+        localStorage.setItem("user", JSON.stringify(response.data))
         dispatch(setAuth(true))
         dispatch(setUser(response.data))
       }
@@ -58,6 +59,7 @@ export const logoutSlice = createAsyncThunk(
       const response = await authService.logout()
       if (response.status === 200) {
         localStorage.removeItem("token")
+        localStorage.removeItem("user")
         dispatch(setAuth(false))
         dispatch(
           setUser({
@@ -91,6 +93,7 @@ export const refreshSLice = createAsyncThunk(
       })
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken)
+        localStorage.setItem("user", JSON.stringify(response.data))
         dispatch(setAuth(true))
         dispatch(setUser(response.data))
         console.log(response)

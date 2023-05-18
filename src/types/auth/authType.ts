@@ -1,4 +1,5 @@
 export interface AuthType {
+  id: number
   userId: number
   email: string
   isActivated: boolean

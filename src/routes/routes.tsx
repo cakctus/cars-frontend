@@ -7,6 +7,7 @@ import Reg from "../components/Auth/Reg"
 import Login from "../components/Auth/Login/Login"
 import Logout from "../components/Auth/Logout/Logout"
 import FetchUsers from "../components/FetchUsers/FetchUsers"
+import Chat from "../components/Chat/Chat"
 
 interface RouteObject {
   path?: string
@@ -49,6 +50,11 @@ const routes = [
   {
     path: "/users",
     element: <FetchUsers />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/chat",
+    element: <Chat />,
     errorElement: <ErrorPage />,
   },
 ]

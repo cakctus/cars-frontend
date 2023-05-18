@@ -8,7 +8,8 @@ class AuthService {
   }
 
   async login(email: string, password: string) {
-    return auth.post<AuthType>("/login", { email, password })
+    // return auth.post<AuthType>("/login", { email, password })
+    return auth.post("/login", { email, password })
   }
 
   async logout() {
