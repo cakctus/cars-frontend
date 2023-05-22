@@ -25,9 +25,10 @@ export const registrationSlice = createAsyncThunk<any, any>(
     try {
       const { email, password } = payload
       const response = await authService.reg(email, password)
-      if (response.status === 200) {
-        console.log(response)
-      }
+      console.log(response)
+      // if (response.status === 200) {
+      //   console.log(response)
+      // }
     } catch (error) {
       console.log(error)
     }

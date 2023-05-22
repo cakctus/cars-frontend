@@ -10,12 +10,16 @@ import axios from "axios"
 type Props = {
   myId: number
   user: any
+  socket: any
 }
 
-const ChatContainer = ({ myId, user }: Props) => {
+const ChatContainer = ({ myId, user, socket }: Props) => {
+  const [isTyping, setIsTyping] = useState(false)
   const [createMessage] = useCreateMessageMutation()
   const [getMessages] = useGetMessageMutation()
   const [messages, setMessages] = useState<any>([])
+  const [arrivalMessage, setArrivalMessage] = useState<any>(null)
+  let typingTimeout: any = null
 
   const handleSendMsg = async (msg: string) => {
     const message = {
@@ -25,10 +29,39 @@ const ChatContainer = ({ myId, user }: Props) => {
     }
     try {
       createMessage(message)
+      console.log(createMessage(message))
+      socket.current.emit("send-msg", message)
+      console.log(message, "send-msg")
+      const msgs = [...messages]
+      msgs.push({
+        fromSelf: true,
+        message: msg,
+      })
+      setMessages(msgs)
     } catch (error) {
       console.log(error)
     }
   }
+
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.on("msg-receive", (msg: any) => {
+        console.log(msg, "msg-receive")
+        const msgs = [...messages]
+        msgs.push({
+          fromSelf: false,
+          message: msg,
+        })
+        setMessages(msgs)
+        setArrivalMessage({ fromSelf: false, message: msg })
+        console.log(messages)
+      })
+    }
+  }, [messages.length])
+
+  useEffect(() => {
+    arrivalMessage && setMessages((prev: any) => [...prev, arrivalMessage])
+  }, [])
 
   const getM = async () => {
     const message = {
@@ -47,19 +80,37 @@ const ChatContainer = ({ myId, user }: Props) => {
           from: myId,
           to: user.id,
         })
-        .then((res) => setMessages(res.data))
+        .then((res) => {
+          setMessages(res.data)
+        })
         .catch((error) => console.log(error))
     }
 
-    fetchData()
+    if (user.email) {
+      fetchData()
+    }
+    // fetchData()
   }, [user])
 
-  console.log(messages)
+  // console.log(messages)
 
-  console.log({
-    from: myId,
-    to: user.id,
-  })
+  const handleKeyDown = () => {
+    setIsTyping(true)
+    clearTimeout(typingTimeout)
+    typingTimeout = setTimeout(() => {
+      setIsTyping(false)
+    }, 500) // 5 seconds
+  }
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(typingTimeout)
+    }
+  }, [])
+
+  const handleKeyUp = () => {
+    setIsTyping(false)
+  }
 
   return (
     <div>
@@ -75,9 +126,9 @@ const ChatContainer = ({ myId, user }: Props) => {
         </div>
       </div>
       <div className="chat-messages">
-        {messages.map((message: any) => {
+        {messages.map((message: any, index: number) => {
           return (
-            <div>
+            <div key={index}>
               <div
                 className={`message ${
                   message.fromSelf ? "sended" : "recieved"
@@ -91,7 +142,12 @@ const ChatContainer = ({ myId, user }: Props) => {
           )
         })}
       </div>
-      <ChatInput handleSendMsg={handleSendMsg} />
+      {isTyping && <p>User is typing...</p>}
+      <ChatInput
+        handleSendMsg={handleSendMsg}
+        handleKeyDown={handleKeyDown}
+        handleKeyUp={handleKeyUp}
+      />
     </div>
   )
 }

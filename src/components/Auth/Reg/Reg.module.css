@@ -1,0 +1,112 @@
+.regContainer {
+  margin: 0 auto;
+  max-width: 1014px;
+  width: 100%;
+}
+
+.regBlock {
+  margin: 0 auto;
+  max-width: 1014px;
+}
+
+.formContainer {
+  padding: 2rem;
+}
+
+.titles {
+  font-weight: 800;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.svg {
+  cursor: pointer;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 93%;
+}
+
+.input {
+  width: 100%;
+  background: #e8f0fe;
+  border: 1px solid silver;
+  border-radius: 5px;
+  box-shadow: none;
+  color: var(--color-content-lead);
+  height: 2.5rem;
+  padding: 15px;
+  transition: all 0.2s linear;
+}
+
+.input:focus {
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.buttonAuth {
+  background-color: rgb(255, 102, 0);
+  border: 1px solid rgb(255, 102, 0);
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  font-weight: 700;
+  height: 2.6rem;
+}
+
+.input[type="email"]:invalid {
+  color: red;
+}
+
+.input[type="password"]:invalid {
+  color: red;
+}
+
+.ulValidations {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style-image: none;
+  list-style-type: none;
+  padding: 0 2rem 0.8rem 0;
+  white-space: nowrap;
+}
+
+.liValidations {
+  align-items: center;
+  color: rgba(90, 94, 102);
+  font-size: 0.9rem;
+}
+
+.regTerms {
+  font-size: 0.9rem;
+}
+
+.linkTerm {
+  margin: 0 5px;
+  text-decoration: underline;
+  color: rgba(90, 94, 102);
+  text-decoration-color: rgb(255, 102, 0);
+}
+
+.linkTerm a {
+  color: rgb(255, 102, 0);
+}

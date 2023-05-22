@@ -1,24 +1,14 @@
 import { useState } from "react"
-import Picker, { EmojiStyle, Theme } from "emoji-picker-react"
 import styles from "../Chat.module.css"
 
 type Props = {
   handleSendMsg: any
+  handleKeyDown: any
+  handleKeyUp: any
 }
 
-const ChatInput = ({ handleSendMsg }: Props) => {
+const ChatInput = ({ handleSendMsg, handleKeyDown, handleKeyUp }: Props) => {
   const [msg, setMsg] = useState("")
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false)
-
-  const handleEmojiPickerhideShow = () => {
-    setShowEmojiPicker(!showEmojiPicker)
-  }
-
-  const handleEmojiClick = (emojiObject: any) => {
-    let message = msg
-    message += " " + emojiObject.emoji
-    setMsg(message)
-  }
 
   const sendChat = (event: any) => {
     event.preventDefault()
@@ -38,6 +28,7 @@ const ChatInput = ({ handleSendMsg }: Props) => {
           placeholder="type your message here"
           onChange={(e) => setMsg(e.target.value)}
           value={msg}
+          onKeyDown={handleKeyDown}
         />
         <button type="submit">send message</button>
       </form>

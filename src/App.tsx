@@ -2,6 +2,9 @@ import { useEffect } from "react"
 import MainPage from "./pages/MainPage/MainPage"
 import { useAppDispatch, useAppSelector } from "./redux/store/store"
 import { refreshSLice } from "./redux/slices/auth/authSlice"
+import { Outlet } from "react-router-dom"
+import Header from "./components/Header/Header"
+import Footer from "./components/Footer/Footer"
 import "./App.css"
 
 function App() {
@@ -19,7 +22,10 @@ function App() {
       <h1>
         Hello: {localStorage.getItem("token") ? user.user.email : "anonim"}
       </h1>
-      <MainPage />
+      <Header />
+      {/* <MainPage /> */}
+      <Outlet />
+      <Footer />
     </>
   )
 }

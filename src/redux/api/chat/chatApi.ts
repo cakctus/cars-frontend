@@ -5,7 +5,7 @@ export const chatApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/chat" }),
   endpoints: (build) => ({
     getChats: build.query({
-      query: (myId) => `/my-chat/${myId && myId}`,
+      query: (myId) => `/my-chat/${myId.myId}/${myId.userId}`,
     }),
     createMessage: build.mutation({
       query: (payload) => ({

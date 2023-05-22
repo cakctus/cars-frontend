@@ -8,9 +8,9 @@ type Props = {}
 const MainPage = (props: Props) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Main />
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

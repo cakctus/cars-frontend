@@ -3,11 +3,13 @@ import { createBrowserRouter } from "react-router-dom"
 import App from "../App"
 import ErrorPage from "../components/ErrorPage/ErrorPage"
 import SearchResult from "../components/SearchResult/SearchResult"
-import Reg from "../components/Auth/Reg"
+import Reg from "../components/Auth/Reg/Reg"
 import Login from "../components/Auth/Login/Login"
+import Auth from "../components/Auth/Auth"
 import Logout from "../components/Auth/Logout/Logout"
 import FetchUsers from "../components/FetchUsers/FetchUsers"
 import Chat from "../components/Chat/Chat"
+import MainPage from "../components/MainPage/Main"
 
 interface RouteObject {
   path?: string
@@ -26,36 +28,43 @@ const routes = [
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/search",
-    element: <SearchResult />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/reg",
-    element: <Reg />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/logout",
-    element: <Logout />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/users",
-    element: <FetchUsers />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/chat",
-    element: <Chat />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <MainPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/search",
+        element: <SearchResult />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/login",
+        element: <Auth />,
+        errorElement: <ErrorPage />,
+      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
+      //   errorElement: <ErrorPage />,
+      // },
+      {
+        path: "/logout",
+        element: <Logout />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/users",
+        element: <FetchUsers />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/chat",
+        element: <Chat />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ]
 
