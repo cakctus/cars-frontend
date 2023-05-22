@@ -10,8 +10,8 @@ import ChatContainer from "./ChatContainer/ChatContainer"
 type Props = {}
 
 const Chat = (props: Props) => {
-  const myIds: any = localStorage.getItem("user")
-  const myId = JSON.parse(myIds).userId
+  const myIds: any = localStorage.getItem("user") // todo check if localstorage exists
+  const myId = JSON.parse(myIds)?.userId
   const [clickUser, setClickUser] = useState<any>({})
   const [clickedId, setClickedId] = useState<any>({})
   const {
@@ -20,6 +20,7 @@ const Chat = (props: Props) => {
     isError,
   } = useGetChatsQuery({ myId, userId: clickUser.id })
   const [chats2, setChats2] = useState([])
+  const [lastMessages, setLastMessage] = useState<string>("")
   const socket = useRef<any>()
 
   // const socket = io("http://localhost:5001")
@@ -57,15 +58,19 @@ const Chat = (props: Props) => {
     <div className={styles.container}>
       <div className={styles.user}>
         <div>List of users</div>
-        <div className={styles.userList}>
-          {chats?.map((chat: any) => {
+        <div className={styles.userContainer}>
+          {chats?.map((chat: any, index: any) => {
             return (
-              <div
-                className={styles.userItem}
-                key={chat?.id}
-                onClick={() => handleUser(chat)}
-              >
-                {chat?.email}
+              <div className={styles.userList} key={index}>
+                <div
+                  className={styles.userItem}
+                  key={chat?.id}
+                  onClick={() => handleUser(chat)}
+                >
+                  {chat?.email}
+                  {/* {chat?.user?.email} */}
+                </div>
+                {/* <div>{lastMessages && lastMessages}</div> */}
               </div>
             )
           })}
@@ -73,7 +78,13 @@ const Chat = (props: Props) => {
       </div>
       <div className={styles.chat}>
         {chats?.length ? (
-          <ChatContainer user={clickedId} myId={myId} socket={socket} />
+          <ChatContainer
+            user={clickedId}
+            myId={myId}
+            socket={socket}
+            lastMessages={lastMessages}
+            setLastMessage={setLastMessage}
+          />
         ) : (
           "No chats"
         )}

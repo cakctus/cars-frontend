@@ -11,13 +11,22 @@ type Props = {
   myId: number
   user: any
   socket: any
+  lastMessages: string
+  setLastMessage: (arg: any) => void
 }
 
-const ChatContainer = ({ myId, user, socket }: Props) => {
+const ChatContainer = ({
+  myId,
+  user,
+  socket,
+  lastMessages,
+  setLastMessage,
+}: Props) => {
   const [isTyping, setIsTyping] = useState(false)
   const [createMessage] = useCreateMessageMutation()
   const [getMessages] = useGetMessageMutation()
   const [messages, setMessages] = useState<any>([])
+
   const [arrivalMessage, setArrivalMessage] = useState<any>(null)
   let typingTimeout: any = null
 
@@ -92,7 +101,10 @@ const ChatContainer = ({ myId, user, socket }: Props) => {
     // fetchData()
   }, [user])
 
-  // console.log(messages)
+  useEffect(() => {
+    const lastMessages = messages.at(-1)?.message
+    if (lastMessages) setLastMessage(lastMessages)
+  }, [messages])
 
   const handleKeyDown = () => {
     setIsTyping(true)

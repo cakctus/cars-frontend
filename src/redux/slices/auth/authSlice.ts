@@ -15,6 +15,9 @@ const initialState = {
     lastName: null,
     isStaff: false,
   },
+  regError: "",
+  regSuccess: "",
+  loginError: "",
 }
 
 const apiUrl = "http://localhost:5000/api"
@@ -26,11 +29,13 @@ export const registrationSlice = createAsyncThunk<any, any>(
       const { email, password } = payload
       const response = await authService.reg(email, password)
       console.log(response)
-      // if (response.status === 200) {
-      //   console.log(response)
-      // }
-    } catch (error) {
+      if (response.status === 200) {
+        dispatch(regError(""))
+        dispatch(regSuccess("Successfully registered. Please sign in"))
+      }
+    } catch (error: any) {
       console.log(error)
+      dispatch(regError(error.response.data.message))
     }
   }
 )
@@ -46,9 +51,11 @@ export const loginSlice = createAsyncThunk<any, any>(
         localStorage.setItem("user", JSON.stringify(response.data))
         dispatch(setAuth(true))
         dispatch(setUser(response.data))
+        dispatch(regSuccess(""))
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log(error)
+      dispatch(loginError(error.response.data.message))
     }
   }
 )
@@ -95,8 +102,8 @@ export const refreshSLice = createAsyncThunk(
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken)
         localStorage.setItem("user", JSON.stringify(response.data))
-        dispatch(setAuth(true))
-        dispatch(setUser(response.data))
+        // dispatch(setAuth(true))
+        // dispatch(setUser(response.data))
         console.log(response)
       }
     } catch (error) {
@@ -123,12 +130,50 @@ const authSlice = createSlice({
         user: action.payload,
       }
     },
+    regError(state, action) {
+      return {
+        ...state,
+        regError: action.payload,
+      }
+    },
+    regSuccess(state, action) {
+      return {
+        ...state,
+        regSuccess: action.payload,
+      }
+    },
+    cleanRegSuccess(state, action) {
+      return {
+        ...state,
+        regSuccess: action.payload,
+      }
+    },
+    loginError(state, action) {
+      return {
+        ...state,
+        loginError: action.payload,
+      }
+    },
+    cleanLoginError(state, action) {
+      return {
+        ...state,
+        loginError: action.payload,
+      }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(registrationSlice.fulfilled, (state, action) => {})
   },
 })
 
-const { setAuth, setUser } = authSlice.actions
+export const {
+  setAuth,
+  setUser,
+  regError,
+  regSuccess,
+  cleanRegSuccess,
+  loginError,
+  cleanLoginError,
+} = authSlice.actions
 
 export default authSlice.reducer

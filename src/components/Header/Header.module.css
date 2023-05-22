@@ -68,6 +68,82 @@
 .headerItemThree {
   display: flex;
   grid-area: 1rem;
+  /* position: relative; */
+}
+
+.relativeBlock {
+  cursor: pointer;
+  position: relative;
+}
+
+.absoluteBlock {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 1rem;
+  z-index: 999;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.absoluteBlock::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(255, 255, 255); /* Replace with your desired indicator color */
+  z-index: 1;
+}
+
+.listItemsModal {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.listItemModal {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.listItemText {
+  color: rgb(90, 94, 102);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.logoutButton {
+  background-color: transparent;
+  border: 1px solid silver;
+  width: max-content;
+  padding: 0.5rem;
+  font-weight: 700;
+  color: rgb(9, 69, 89);
+  width: 100%;
+}
+
+.absoluteBlockItem {
+  border-top: 1px solid silver;
+  padding: 0.4rem;
+}
+
+.absoluteBlockItem:first-child {
+  border-top: none;
+}
+
+.emailLogg {
+  font-size: 0.8rem;
+  color: silver;
+  font-weight: 400;
 }
 
 .parking {
@@ -91,4 +167,28 @@
   overflow: hidden;
   outline: none;
   border-radius: 10px;
+}
+
+.login:hover {
+  cursor: pointer;
+}
+
+.logoutContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.logoutButton:hover {
+  cursor: pointer;
+}
+
+.svgCover:hover path {
+  fill: black; /* Replace with your desired hover color */
+}
+
+.svgCover:hover {
+  fill: black; /* Replace with your desired hover color */
+  cursor: pointer;
 }

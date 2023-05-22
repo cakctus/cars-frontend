@@ -1,11 +1,11 @@
-import React from "react"
+import styles from "../Header.module.css"
 
 type Props = {}
 
 const Parking = (props: Props) => {
   return (
     <svg
-      className="OEWTD sdOa3"
+      className={styles.svgCover}
       width="25"
       height="25"
       viewBox="0 0 24 24"
@@ -13,6 +13,7 @@ const Parking = (props: Props) => {
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
+      color="rgb( 90,94,102 )"
     >
       <path
         fillRule="evenodd"

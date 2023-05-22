@@ -110,3 +110,20 @@
 .linkTerm a {
   color: rgb(255, 102, 0);
 }
+
+.regError,
+.loginError {
+  background-size: cover;
+  color: #f2193a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.regSuccess {
+  background-size: cover;
+  color: #05df7d;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

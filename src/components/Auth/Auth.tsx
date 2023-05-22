@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styles from "./Auth.module.css"
 import Reg from "./Reg/Reg"
 import Login from "./Login/Login"
+import AuthLinks from "./AuthLinks/AuthLinks"
+import AuthContainer from "./AuthContainer/AuthContainer"
+import { useSelector } from "react-redux"
 
 type Props = {}
 
@@ -9,10 +12,17 @@ const Auth = (props: Props) => {
   const [title, setTitle] = useState<number>(0)
   const arrayOfComponents = [<Login />, <Reg />]
   const arrayOfTitle = ["Login", "Register"]
+  const authState = useSelector((state: any) => state.auth)
 
   const handleTitle = (index: number) => {
     setTitle(index)
   }
+
+  useEffect(() => {
+    if (authState.regSuccess) {
+      setTitle(0)
+    }
+  }, [authState.regSuccess])
 
   return (
     <div className={styles.authContainer}>
@@ -21,36 +31,24 @@ const Auth = (props: Props) => {
           <div className={styles.authTitle}>
             {arrayOfTitle.map((item, index) => {
               return (
-                <div
+                <AuthLinks
+                  item={item}
+                  index={index}
+                  title={title}
+                  handleTitle={handleTitle}
                   key={index}
-                  style={{
-                    color: title === index ? "rgb(255, 102, 0)" : "black",
-                    background:
-                      title !== index
-                        ? "rgb( 247,247,247)"
-                        : "rgb(255, 255, 255)",
-                    borderRight: title === 0 ? "1px solid silver" : "0px",
-                    borderBottom: title !== index ? "1px solid silver" : "0px",
-                    borderLeft: title === 1 ? "1px solid silver" : "0px",
-                    // borderTopLeftRadius: title === 0 ? "10px" : "0",
-                  }}
-                  className={styles.titleItem}
-                  onClick={() => handleTitle(index)}
-                >
-                  {item}
-                </div>
+                />
               )
             })}
           </div>
           {arrayOfComponents.map((item: any, index: number) => {
             return (
-              <div
+              <AuthContainer
+                item={item}
+                index={index}
+                title={title}
                 key={index}
-                className={styles.formContainer}
-                style={{ display: title === index ? "block" : "none" }}
-              >
-                <div className={styles.formItem}>{item}</div>
-              </div>
+              />
             )
           })}
         </div>
