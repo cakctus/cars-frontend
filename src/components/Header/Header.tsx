@@ -9,6 +9,8 @@ import Profile from "./pics/Profile"
 import Chat from "../Chat/Chat"
 import { Link } from "react-router-dom"
 import Settings from "./pics/Settings"
+import { useAppDispatch, useAppSelector } from "../../redux/store/store"
+import { chatIsOpen } from "../../redux/slices/chat/chatSlice"
 
 type Props = {}
 
@@ -29,6 +31,9 @@ const Header = (props: Props) => {
   const divRef = useRef<HTMLDivElement>(null)
   const messageDiv = useRef<HTMLDivElement>(null)
   const chatDiv = useRef<HTMLDivElement>(null)
+
+  const chatState = useAppSelector((state: any) => state.chat)
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     const user = localStorage.getItem("user")
@@ -78,6 +83,7 @@ const Header = (props: Props) => {
   const handleMessage = (e: React.MouseEvent) => {
     if (messageDiv.current) {
       setShowMessage((prev) => !prev)
+      dispatch(chatIsOpen())
       const rect = messageDiv.current.getBoundingClientRect()
       const { left, top, right } = rect
 

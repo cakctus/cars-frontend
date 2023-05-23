@@ -5,6 +5,7 @@ import {
   useCreateMessageMutation,
   useGetMessageMutation,
 } from "../../../redux/api/chat/chatApi"
+import ChatImg from "../pics/chat.png"
 import axios from "axios"
 
 type Props = {
@@ -124,43 +125,52 @@ const ChatContainer = ({
     setIsTyping(false)
   }
 
+  console.log(user)
+
   return (
-    <div>
-      <h3>Chat with {user.email}</h3>
-      <div className="chat-header">
-        <div className="user-details">
-          <div className="avatar">
-            {/* <img
-              src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
-              alt=""
-            /> */}
-          </div>
-        </div>
-      </div>
-      <div className="chat-messages">
-        {messages.map((message: any, index: number) => {
-          return (
-            <div key={index}>
-              <div
-                className={`message ${
-                  message.fromSelf ? "sended" : "recieved"
-                }`}
-              >
-                <div className="content ">
-                  <p>{message.message}</p>
-                </div>
+    <>
+      {user.id ? (
+        <div className={styles.chatContainer}>
+          <div className={styles.chatHeader}>
+            <div className="user-details">
+              <h4 className={styles.chatWithTitle}>Chat with {user.email}</h4>
+              <div className="avatar">
+                {/* <img
+                  src={`data:image/svg+xml;base64,${currentChat.avatarImage}`}
+                  alt=""
+                /> */}
               </div>
             </div>
-          )
-        })}
-      </div>
-      {isTyping && <p>User is typing...</p>}
-      <ChatInput
-        handleSendMsg={handleSendMsg}
-        handleKeyDown={handleKeyDown}
-        handleKeyUp={handleKeyUp}
-      />
-    </div>
+          </div>
+          <div className={styles.chatMessages}>
+            {messages.map((message: any, index: number) => (
+              <div key={index}>
+                <div
+                  className={`${styles.message} ${
+                    message.fromSelf ? styles.sended : styles.received
+                  }`}
+                >
+                  <div className={styles.content}>
+                    <p>{message.message}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className={styles.inputContainer}>
+            <ChatInput
+              handleSendMsg={handleSendMsg}
+              handleKeyDown={handleKeyDown}
+              handleKeyUp={handleKeyUp}
+            />
+          </div>
+        </div>
+      ) : (
+        <div className={styles.noChats}>
+          <img className={styles.noChatsImg} src={ChatImg} alt="No chats" />
+        </div>
+      )}
+    </>
   )
 }
 

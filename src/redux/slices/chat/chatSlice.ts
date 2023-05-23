@@ -3,6 +3,7 @@ import ChatService from "../../../services/chat/chatService"
 
 const initialState = {
   myChats: [{ email: "", id: 0 }],
+  isOpen: false,
 }
 
 export const addId = createAsyncThunk<any, any>(
@@ -39,9 +40,15 @@ const chatSlice = createSlice({
         myChats: action.payload,
       }
     },
+    chatIsOpen(state) {
+      return {
+        ...state,
+        isOpen: !state["isOpen"],
+      }
+    },
   },
 })
 
-const { addIdSlice, myChatSucces } = chatSlice.actions
+export const { addIdSlice, myChatSucces, chatIsOpen } = chatSlice.actions
 
 export default chatSlice.reducer

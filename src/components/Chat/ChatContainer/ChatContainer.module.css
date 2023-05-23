@@ -1,0 +1,130 @@
+.noChats {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: bg-up 2s ease-in-out infinite;
+  background: center center;
+  transition: translate 5s;
+}
+
+@keyframes bg-up {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.chatWithTitle {
+  font-size: 0.9rem;
+}
+
+.chatContainer {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 10% 80% 10%;
+  /* gap: 0.1rem; */
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.chatHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.chatMessages {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
+
+/* .chatMessages::-webkit-scrollbar {
+  width: 0.2rem;
+} */
+
+.message {
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  max-width: 50%;
+  overflow-wrap: break-word;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  color: #131313;
+  font-weight: 700;
+}
+
+.sended {
+  justify-content: flex-end;
+}
+
+.sended .content {
+  background-color: #4f04ff21;
+}
+
+.received {
+  justify-content: flex-start;
+}
+
+.received .content {
+  background-color: #98989820;
+}
+
+.inputContainerMsg {
+  border: 1px solid silver;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.inputContainer {
+  height: 100%;
+}
+
+.chatInput {
+  font-family: "Open Sans";
+  font-size: 0.85rem;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+  width: 100%;
+  resize: none;
+  text-align: start;
+  border-top-left-radius: 10px;
+}
+
+.textAreaContainer {
+  width: 85%;
+  /* height: 300px; */
+
+  border-right: 1px solid silver;
+}
+
+.sendMsgSvg {
+  border-radius: 10px;
+  border: none;
+  width: 15%;
+  background-color: transparent;
+}

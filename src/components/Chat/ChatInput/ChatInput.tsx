@@ -1,5 +1,7 @@
 import { useState } from "react"
-import styles from "../Chat.module.css"
+// import styles from "../Chat.module.css"
+import styles from "../ChatContainer/ChatContainer.module.css"
+import SendMsg from "../pics/SendMsg"
 
 type Props = {
   handleSendMsg: any
@@ -20,17 +22,21 @@ const ChatInput = ({ handleSendMsg, handleKeyDown, handleKeyUp }: Props) => {
 
   return (
     <>
-      <div className="button-container"></div>
-      <form className="input-container" onSubmit={(event) => sendChat(event)}>
-        <input
-          className={styles.chatInput}
-          type="text"
-          placeholder="type your message here"
-          onChange={(e) => setMsg(e.target.value)}
-          value={msg}
-          onKeyDown={handleKeyDown}
-        />
-        <button type="submit">send message</button>
+      <form
+        className={styles.inputContainerMsg}
+        onSubmit={(event) => sendChat(event)}
+      >
+        <div className={styles.textAreaContainer}>
+          <textarea
+            className={styles.chatInput}
+            placeholder="type your message here"
+            onChange={(e) => setMsg(e.target.value)}
+            value={msg}
+          />
+        </div>
+        <button className={styles.sendMsgSvg} type="submit">
+          <SendMsg />
+        </button>
       </form>
     </>
   )
