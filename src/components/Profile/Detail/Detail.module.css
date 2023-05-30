@@ -1,0 +1,100 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.detailItem {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  color: detailItem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  margin-left: 2rem;
+}
+
+.detailItemTitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+  margin-left: 0.5rem;
+}
+
+.svgDiv {
+  position: absolute;
+  left: -3%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  height: 100%;
+}
+
+.sellerBlock {
+  display: grid;
+  grid-template-columns: 100% 10%;
+}
+
+.sellers {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-weight: 500;
+}
+
+.invisibleSpinner::-webkit-inner-spin-button,
+.invisibleSpinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  visibility: hidden;
+  border: none;
+}
+
+.userPhotoBlock {
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+}
+
+.userPhoto {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 5px solid #fffffe;
+}
+
+.updatePhoto:hover {
+  cursor: pointer;
+}
+
+.userPhoto:hover {
+  cursor: pointer;
+}
+
+.inputText {
+  /* background-color: red; */
+  /* width: 50%; */
+  height: 2rem;
+  border: 1px solid silver;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.hiddenFile {
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}

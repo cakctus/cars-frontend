@@ -8,10 +8,12 @@ const Location = (props: Props) => {
     <div className={styles.container}>
       <Title title="Location" />
       <div className={styles.vehicle}>
-        <div className={styles.vehicleType}>Used</div>
+        <div className={styles.vehicleType}>Chisinau</div>
         <div className={styles.change}>change</div>
       </div>
-      <hr />
+      <div className={styles.hr}>
+        <hr />
+      </div>
     </div>
   )
 }

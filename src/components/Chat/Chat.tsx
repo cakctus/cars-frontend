@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"
 import { useGetChatsQuery } from "../../redux/api/chat/chatApi"
 import { useAppDispatch, useAppSelector } from "../../redux/store/store"
-// import { io } from "socket.io-client"
+
 import { io } from "socket.io-client"
 import axios from "axios"
 
@@ -25,7 +25,7 @@ const Chat = (props: Props) => {
     { myId, userId: clickUser.id },
     {
       skip,
-      pollingInterval: 3000,
+      pollingInterval: 5000,
     }
   )
   const [chats2, setChats2] = useState([])
@@ -33,8 +33,6 @@ const Chat = (props: Props) => {
   const socket = useRef<any>()
   const chatState = useAppSelector((state: any) => state.chat)
   const dispatch = useAppDispatch()
-
-  // const socket = io("http://localhost:5001")
 
   const handleUser = (chat: any) => {
     // setClickUser(chat)
@@ -67,36 +65,13 @@ const Chat = (props: Props) => {
   useEffect(() => {
     if (JSON.parse(myIds)) {
       socket.current = io("http://localhost:5001")
-      console.log(socket)
       socket.current.emit("add-user", myId)
     }
   }, [JSON.parse(myIds)])
-  console.log(chats)
-  console.log(chatState.isOpen)
 
   return (
     <main className={styles.container}>
       <section className={styles.user}>
-        {/* <h4 className={styles.chatTitle}>Chats</h4>
-        <div className={styles.userContainer}>
-          {chats?.map((chat: any, index: any) => {
-            return (
-              <div className={styles.userList} key={index}>
-                <div className={styles.blockUser}></div>
-                <div className={styles.blockMsg}>
-                  <div
-                    className={styles.userItem}
-                    key={chat?.id}
-                    onClick={() => handleUser(chat)}
-                  >
-                    {chat?.email}
-                  </div>
-                  <div>{lastMessages && lastMessages}</div>
-                </div>
-              </div>
-            )
-          })}
-        </div> */}
         <UserList
           chats={chats}
           handleUser={handleUser}
@@ -104,17 +79,6 @@ const Chat = (props: Props) => {
         />
       </section>
       <section className={styles.chat}>
-        {/* {chats?.length ? (
-          <ChatContainer
-            user={clickedId}
-            myId={myId}
-            socket={socket}
-            lastMessages={lastMessages}
-            setLastMessage={setLastMessage}
-          />
-        ) : (
-          "No chats"
-        )} */}
         <ChatContainer
           user={clickedId}
           myId={myId}

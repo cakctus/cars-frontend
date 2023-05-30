@@ -11,7 +11,9 @@ const Vehicle = (props: Props) => {
         <div className={styles.vehicleType}>Used</div>
         <div className={styles.change}>change</div>
       </div>
-      <hr />
+      <div className={styles.hr}>
+        <hr />
+      </div>
     </div>
   )
 }

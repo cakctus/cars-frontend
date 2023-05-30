@@ -1,0 +1,33 @@
+.container {
+}
+
+.vendorBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  justify-content: flex-start;
+  align-items: self-start;
+}
+
+.vendorItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.inputVendor {
+  margin-right: 0.5rem;
+  appearance: auto;
+  padding: 0;
+  margin: 0 0.5rem 0 0;
+}
+
+.vendorItemLabel {
+  width: 50%;
+  word-wrap: break-word;
+}

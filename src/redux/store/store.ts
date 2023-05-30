@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux"
 import { authApi } from "../api/auth/authApi"
 import { chatApi } from "../api/chat/chatApi"
+import { profileApi } from "../api/profile/profileApi"
 import authSlice from "../slices/auth/authSlice"
 import chatSlice from "../slices/chat/chatSlice"
 
@@ -9,11 +10,14 @@ const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
     [chatApi.reducerPath]: chatApi.reducer,
+    [profileApi.reducerPath]: profileApi.reducer,
     auth: authSlice,
     chat: chatSlice,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(chatApi.middleware),
+    getDefaultMiddleware()
+      .concat(chatApi.middleware)
+      .concat(profileApi.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>

@@ -21,9 +21,6 @@ const Kilometre = (props: Props) => {
                 placeholder="from"
               />
             </div>
-            <div className={styles.searchInlineTwo}>
-              <ArrowDown />
-            </div>
           </div>
         </div>
         <div className={styles.searchItem}>
@@ -38,13 +35,9 @@ const Kilometre = (props: Props) => {
                 placeholder="to"
               />
             </div>
-            <div className={styles.searchInlineTwo}>
-              <ArrowDown />
-            </div>
           </div>
         </div>
       </div>
-      <hr />
     </div>
   )
 }

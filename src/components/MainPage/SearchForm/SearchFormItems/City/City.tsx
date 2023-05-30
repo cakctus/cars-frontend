@@ -1,4 +1,3 @@
-import React from "react"
 import styles from "../../SearchForm.module.css"
 import ArrowDown from "../../SearchBy/ArrowDown"
 

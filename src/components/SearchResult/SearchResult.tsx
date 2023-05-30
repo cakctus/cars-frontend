@@ -1,40 +1,56 @@
 import styles from "./SearchResult.module.css"
-import Header from "../Header/Header"
-import Footer from "../Footer/Footer"
 import Vehicle from "./Filter/Vehicle/Vehicle"
+import Location from "./Filter/Sort/Sort"
+import Sort from "./Filter/Location/Location"
 import VehicleType from "./Filter/VehicleType/VehicleType"
 import Price from "./Filter/Price/Price"
 import Kilometre from "./Filter/Kilometre/Kilometre"
 import Registration from "./Filter/Registration/Registration"
-import Location from "./Filter/Location/Location"
-import FuelType from "../MainPage/SearchForm/SearchFormItems/FuelType/FuelType"
+import Fuel from "./Filter/FuelType/Fuel"
+import Transmission from "./Filter/Transmission/Transmission"
+import Vendor from "./Filter/Vendor/Vendor"
+import Numbers from "./Filter/Numbers/Numbers"
+import Traction from "./Filter/Traction/Traction"
+import EngineCapacity from "./Filter/EngineCapacity/EngineCapacity"
+import Body from "./Filter/Body/Body"
+import Seats from "./Filter/Seats/Seats"
+import Doors from "./Filter/Doors/Doors"
+import SearchList from "./SearchListItems/SearchList"
 
 type Props = {}
 
 const SearchResult = (props: Props) => {
   return (
     <>
-      <Header />
       <section className={styles.searchContainer}>
         <aside className={styles.searchAside}>
-          <div className={styles.searchTitle}>
+          {/* <div className={styles.searchTitle}>
             <span>Detailed Search</span>
             <hr />
-          </div>
+          </div> */}
           <Vehicle />
-          <VehicleType />
-          <Price />
-          <Registration />
-          <Kilometre />
+          <Sort />
+          <Numbers />
           <Location />
-          <FuelType />
+          <VehicleType />
+          <Registration />
+          <Fuel />
+          <Transmission />
+          <Traction />
+          <EngineCapacity />
+          <Price />
+          <Kilometre />
+          <Body />
+          <Seats />
+          <Doors />
+          <Vendor />
         </aside>
         <main className={styles.searchMain}>
-          <section>section title</section>
-          <section> cars list </section>
+          <section>
+            <SearchList />
+          </section>
         </main>
       </section>
-      <Footer />
     </>
   )
 }

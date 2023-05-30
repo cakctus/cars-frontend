@@ -81,7 +81,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
   /* padding: 1rem; */
   z-index: 999;
   background-color: rgb(255, 255, 255);
@@ -89,7 +89,7 @@
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.absoluteBlock::before {
+/* .absoluteBlock::before {
   content: "";
   position: absolute;
   top: -10px;
@@ -99,9 +99,9 @@
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid rgb(255, 255, 255); /* Replace with your desired indicator color */
-  z-index: 1;
-}
+  border-bottom: 10px solid rgb(255, 255, 255);
+  z-index: 999;
+} */
 
 .listItemsModal {
   display: flex;
@@ -119,6 +119,8 @@
   color: rgb(90, 94, 102);
   font-weight: 700;
   font-size: 1rem;
+  max-width: 130px;
+  word-wrap: break-word;
 }
 
 .logoutButton {
@@ -134,6 +136,7 @@
 .absoluteBlockItem {
   border-top: 1px solid silver;
   padding: 0.4rem;
+  padding: 1rem;
 }
 
 .absoluteBlockItem:first-child {
@@ -150,6 +153,11 @@
   display: flex;
   margin-right: 1rem;
   align-items: center;
+  /* padding: 0.5rem; */
+  border: 1px solid transparent;
+  line-height: 0;
+  /* padding: 20px; */
+  position: relative;
 }
 
 .loginButton {
@@ -182,6 +190,11 @@
 
 .logoutButton:hover {
   cursor: pointer;
+}
+
+.nofocus {
+  /* border: 1px solid silver; */
+  padding: 0.5rem;
 }
 
 .svgCover:hover path {

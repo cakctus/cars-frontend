@@ -10,6 +10,7 @@ import Logout from "../components/Auth/Logout/Logout"
 import FetchUsers from "../components/FetchUsers/FetchUsers"
 import Chat from "../components/Chat/Chat"
 import MainPage from "../components/MainPage/Main"
+import Profile from "../components/Profile/Profile"
 
 interface RouteObject {
   path?: string
@@ -62,6 +63,11 @@ const routes = [
       {
         path: "/chat",
         element: <Chat />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
         errorElement: <ErrorPage />,
       },
     ],

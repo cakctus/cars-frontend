@@ -1,0 +1,138 @@
+.headerHead {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerPhoto {
+  position: relative;
+  height: 25vh;
+  background: rgb(236, 235, 250);
+  background: linear-gradient(
+    90deg,
+    rgb(244, 244, 244) 0%,
+    rgb(246, 234, 234) 0%,
+    #f6f6f6 100%
+  );
+  border-top-left-radius: 5rem;
+}
+
+.cameraHeader {
+  position: absolute;
+  bottom: 5%;
+  right: 1%;
+}
+
+.cameraHeader {
+  cursor: pointer;
+}
+
+.userPhoto {
+  display: grid;
+  grid-template-columns: 15% 65% 20%;
+  justify-content: space-around;
+  padding: 1rem;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem; */
+  /* background-color: red; */
+  /* align-self: center; */
+}
+
+.photo {
+  /* background-color: red; */
+  position: relative;
+  /* top: -50px; */
+  top: -40%;
+}
+
+.photoAbsolute {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* position: absolute; */
+
+  object-fit: cover;
+  object-position: center;
+
+  border: 5px solid #fffffe;
+
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.profileTitle {
+  color: #1e1f24;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.profileUpdate {
+  color: #1e1f24;
+  font-weight: 600;
+}
+
+.headerButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* background-color: black; */
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-start;
+  gap: 1rem;
+  margin-left: 0.5rem;
+}
+
+.cancelButton {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid silver;
+}
+
+.cancelButton:hover {
+  cursor: pointer;
+}
+
+.saveButton {
+  border: 1px solid transparent;
+  background-color: #0a4559;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.6rem;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  outline: none;
+  border-radius: 10px;
+}
+
+.saveButton:hover {
+  cursor: pointer;
+}
+
+.hiddenFile {
+  display: none;
+  border: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  background-color: transparent;
+  overflow: hidden;
+}

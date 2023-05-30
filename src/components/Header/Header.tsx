@@ -26,6 +26,11 @@ const Header = (props: Props) => {
   const [email, setEmail] = useState<string>("")
   const [showBlock, setShowBlock] = useState<boolean>(false)
   const [showMessage, setShowMessage] = useState<boolean>(false)
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  })
+  const [scrollOffset, setScrollOffset] = useState(0)
 
   const parentRef = useRef<HTMLDivElement>(null)
   const divRef = useRef<HTMLDivElement>(null)
@@ -41,18 +46,35 @@ const Header = (props: Props) => {
     if (user !== null) {
       setEmail(JSON.parse(user).email)
     }
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      setScrollOffset(scrollTop)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
+    }
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   const handleCoord = (e: React.MouseEvent) => {
-    // setShowBlock((prev) => !prev)
-    console.log(parentRef, "target")
-
-    const clickedElement = e.target as HTMLDivElement
     if (parentRef.current) {
       setShowBlock((prev) => !prev)
       const rect = parentRef.current.getBoundingClientRect()
       const { left, top, right, bottom, x, y } = rect
-      console.log(rect)
+
       setCoord({
         left,
         top,
@@ -67,23 +89,42 @@ const Header = (props: Props) => {
 
           const blockLeft = left - blockWidth / 2.5
           const blockRight = right - blockWidth
-          const blockTop = top - blockHeight
+          // const blockTop = top - blockHeight
+          const blockTop = top - blockHeight + scrollOffset
 
-          blockRef.style.left = `${blockRight}px`
+          // blockRef.style.left = `${blockRight - 15}px`
           blockRef.style.top = `${blockTop}px`
+          if (windowSize.width >= 1140) {
+            blockRef.style.left = `${blockLeft}px`
+          } else {
+            blockRef.style.left = `${blockRight - 15}px`
+          }
         }
       } else {
         //@ts-ignore
-        divRef.current!.style.top = `${top + 10}px`
-        // divRef.current!.style.left = `${97}%`
+        const blockRect = parentRef!.current!.getBoundingClientRect()
+        const blockWidth = blockRect.width
+        const blockHeight = blockRect.height
+        const blockRight = right - blockWidth
+        const blockLeft = left - blockWidth / 2.5
+        const blockTop = top + 10 + scrollOffset
+        divRef.current!.style.top = `${blockTop - 15}px`
+        // divRef.current!.style.left = `${blockRight - 140}px`
+        if (windowSize.width >= 1122) {
+          divRef.current!.style.left = `${blockLeft - 50}px`
+        } else {
+          divRef.current!.style.left = `${blockRight - 130}px`
+        }
       }
     }
   }
 
   const handleMessage = (e: React.MouseEvent) => {
+    dispatch(chatIsOpen())
+    console.log(messageDiv, "target")
+    const clickedElement = e.target as HTMLDivElement
     if (messageDiv.current) {
       setShowMessage((prev) => !prev)
-      dispatch(chatIsOpen())
       const rect = messageDiv.current.getBoundingClientRect()
       const { left, top, right } = rect
 
@@ -101,14 +142,33 @@ const Header = (props: Props) => {
 
           const blockLeft = left - blockWidth / 2.5
           const blockRight = right - blockWidth
-          const blockTop = top - blockHeight
+          // const blockTop = top - blockHeight
 
+          const blockTop = top - blockHeight + scrollOffset
           blockRef.style.left = `${blockRight}px`
           // blockRef.style.right = `${0}px`
           blockRef.style.top = `${blockTop}px`
+          console.log(
+            "close",
+            document.getElementById("chatContainer")?.offsetHeight
+          )
         }
       } else {
-        chatDiv.current!.style.top = `${top + 10}px` // Reset the top position when hiding the absolute block
+        const blockRef = clickedElement.parentElement?.parentElement
+        const blockRect = chatDiv!.current!.getBoundingClientRect()
+        const blockWidth = blockRect.width
+        const blockHeight = blockRect.height
+        const blockLeft = left - blockWidth / 2.5
+        const blockRight = right - blockWidth
+        // const blockTop = top - blockHeight
+        const blockTop = top + 10 + scrollOffset
+        chatDiv.current!.style.top = `${blockTop - 15}px`
+        // chatDiv.current!.style.left = `${blockRight - 800}px`
+        if (windowSize.width >= 1951) {
+          chatDiv.current!.style.left = `${blockLeft - 400}px`
+        } else {
+          chatDiv.current!.style.left = `${blockRight - 800}px`
+        }
       }
     }
   }
@@ -168,11 +228,20 @@ const Header = (props: Props) => {
                 <Parking />
               </div>
               <div
-                className={styles.parking}
+                className={`${styles.parking} ${styles.relativeBlock} `}
                 onClick={handleMessage}
                 ref={messageDiv}
               >
+                {/* <Message handleMessage={handleMessage} /> */}
                 <Message />
+              </div>
+              <div
+                className={styles.absoluteBlock}
+                style={{ display: showMessage === true ? "block" : "none" }}
+                ref={chatDiv}
+                id="chatContainer"
+              >
+                <Chat />
               </div>
               <div
                 className={`${styles.parking} ${styles.relativeBlock} `}
@@ -236,13 +305,13 @@ const Header = (props: Props) => {
         </nav>
       </header>
       {/* chat block */}
-      <div
+      {/* <div
         className={styles.absoluteBlock}
         style={{ display: showMessage === true ? "block" : "none" }}
         ref={chatDiv}
       >
         <Chat />
-      </div>
+      </div> */}
     </>
   )
 }

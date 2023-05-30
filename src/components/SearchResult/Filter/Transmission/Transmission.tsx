@@ -1,14 +1,14 @@
-import styles from "./Fuel.module.css"
 import Title from "../../Title/Title"
+import styles from "./Transmission.module.css"
 
 type Props = {}
 
-const Fuel = (props: Props) => {
+const Transmission = (props: Props) => {
   return (
     <div className={styles.container}>
-      <Title title="Fuel Type" />
+      <Title title="Transmission" />
       <div className={styles.vehicle}>
-        <div className={styles.vehicleType}>Diesel</div>
+        <div className={styles.vehicleType}>Any</div>
         <div className={styles.change}>change</div>
       </div>
       <hr />
@@ -16,4 +16,4 @@ const Fuel = (props: Props) => {
   )
 }
 
-export default Fuel
+export default Transmission

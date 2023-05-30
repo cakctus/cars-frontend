@@ -1,0 +1,150 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 9999;
+  /* opacity: 0.6; */
+  pointer-events: none;
+  transition: opacity 3s ease-in-out;
+}
+
+.modalContent {
+  width: 50%;
+  height: 100%;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateX(100%);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  position: relative;
+}
+
+.closeButton {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 2%;
+  top: 2%;
+  font-size: 2rem;
+  color: rgb(207, 73, 73);
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.price {
+  font-weight: 500;
+  margin: 0, 5rem;
+  padding: 0;
+}
+
+.PhotoBlock {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.arrowAbsoluteClick1 {
+  top: 50%;
+  position: absolute;
+  left: 2%;
+}
+
+.arrowAbsoluteClick2 {
+  position: absolute;
+  right: 2%;
+  top: 50%;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  width: 100%;
+  height: 400px;
+}
+
+.blockPhoto {
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+}
+
+.arrowButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: none;
+  background-color: #f0ece7;
+}
+
+.arrowButton:hover {
+  cursor: pointer;
+}
+
+.mPhotoList {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+}
+
+.mPhotoList:hover {
+  cursor: pointer;
+}
+
+.mPhotoItem {
+  width: 100%;
+  /* margin-right: 1rem; */
+}
+
+.photoList {
+  /* width: 100%; */
+  width: 90px;
+  height: 50px;
+  /* object-fit: cover; */
+}
+
+.active {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: auto;
+  background-color: #fffffe;
+  transform: translateX(0%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.modalPhotoBlock {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

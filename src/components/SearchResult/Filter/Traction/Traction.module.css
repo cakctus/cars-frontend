@@ -1,0 +1,46 @@
+.searchItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelTitle {
+  margin-bottom: 5px;
+}
+
+.placeHolderTitle1 {
+  padding-left: 10px;
+  background: var(--FormSelect-background);
+  border: 1px solid #b5b9bf;
+  border: 1px solid var(--FormSelect-border);
+  color: #1e1f24;
+  color: var(--color-content-lead);
+  -webkit-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+}
+
+.searchInline2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid silver;
+  border-radius: 5px;
+}
+
+.searchInlineOne {
+  width: 85%;
+  height: 2rem;
+  border-right: 1px solid silver;
+}
+
+.searchInlineTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+}

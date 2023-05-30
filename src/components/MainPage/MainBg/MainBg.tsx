@@ -7,7 +7,14 @@ type Props = {}
 const MainBg = (props: Props) => {
   return (
     <div className={styles.mainBg}>
-      <img className={styles.introImg} src={MainPic} alt="Intro picture" />
+      <div className={styles.width}>
+        <img
+          className={styles.introImg}
+          src={MainPic}
+          alt="Intro picture"
+          draggable={false}
+        />
+      </div>
     </div>
   )
 }

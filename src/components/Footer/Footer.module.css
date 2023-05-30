@@ -89,7 +89,6 @@
   color: var(--color-content-lead);
   transition: all 0.1s ease-out;
   appearance: none;
-
   background-color: rgb(90, 94, 102);
 }
 

@@ -5,8 +5,8 @@ import SendMsg from "../pics/SendMsg"
 
 type Props = {
   handleSendMsg: any
-  handleKeyDown: any
-  handleKeyUp: any
+  handleKeyDown?: any
+  handleKeyUp?: any
 }
 
 const ChatInput = ({ handleSendMsg, handleKeyDown, handleKeyUp }: Props) => {

@@ -1,4 +1,3 @@
-import styles from "./SearchForm.module.css"
 import Make from "./SearchFormItems/Make/Make"
 import Model from "./SearchFormItems/Model/Model"
 import Registration from "./SearchFormItems/Registration/Registration"
@@ -8,6 +7,7 @@ import MileageUpTo from "./SearchFormItems/MileageUpTo/MileageUpTo"
 import PriceUpTo from "./SearchFormItems/PriceUpTo/PriceUpTo"
 import City from "./SearchFormItems/City/City"
 import SearchBy from "./SearchBy/SearchBy"
+import styles from "./SearchForm.module.css"
 
 type Props = {}
 

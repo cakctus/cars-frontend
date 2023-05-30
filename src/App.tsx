@@ -19,11 +19,7 @@ function App() {
 
   return (
     <>
-      <h1>
-        Hello: {localStorage.getItem("token") ? user.user.email : "anonim"}
-      </h1>
       <Header />
-      {/* <MainPage /> */}
       <Outlet />
       <Footer />
     </>

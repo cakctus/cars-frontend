@@ -102,9 +102,9 @@ export const refreshSLice = createAsyncThunk(
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken)
         localStorage.setItem("user", JSON.stringify(response.data))
-        // dispatch(setAuth(true))
+        dispatch(setAuth(false))
         // dispatch(setUser(response.data))
-        console.log(response)
+        // console.log(response)
       }
     } catch (error) {
       console.log(error)
@@ -116,6 +116,12 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    toggleIsAuth(state) {
+      return {
+        ...state,
+        isAuth: false,
+      }
+    },
     setAuth(state, action) {
       //   state.isAuth = action.payload
       return {
@@ -174,6 +180,7 @@ export const {
   cleanRegSuccess,
   loginError,
   cleanLoginError,
+  toggleIsAuth,
 } = authSlice.actions
 
 export default authSlice.reducer

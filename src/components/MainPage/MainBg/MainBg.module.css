@@ -1,8 +1,16 @@
 .mainBg {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1014px;
+}
+
+.width {
+  margin: 0 auto;
+  overflow: hidden;
+  max-width: 1014px;
 }
 
 .introImg {
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
 }

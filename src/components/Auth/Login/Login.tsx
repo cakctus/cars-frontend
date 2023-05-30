@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect, useRef, RefObject } from "react"
-import { loginSlice } from "../../../redux/slices/auth/authSlice"
+import { loginSlice, toggleIsAuth } from "../../../redux/slices/auth/authSlice"
 import { useAppDispatch, useAppSelector } from "../../../redux/store/store"
 import ShowHidePass from "../ShowHidePass/ShowHidePass"
 import {
@@ -41,11 +41,15 @@ const Login: FC<Props> = () => {
 
       return () => clearTimeout(cleanLogin)
     }
-  }, [authState.regSuccess, authState.loginError])
+
+    if (authState.isAuth) {
+      navigate("/")
+      dispatch(toggleIsAuth())
+    }
+  }, [authState.regSuccess, authState.loginError, authState.isAuth])
 
   const handleRegistration = () => {
     dispatch(loginSlice({ email, password }))
-    navigate("/")
   }
 
   const handlePass = () => {

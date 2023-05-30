@@ -1,5 +1,6 @@
 .container {
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .registration {
@@ -64,8 +65,52 @@
 }
 
 .placeHolderTitle {
-  margin: 5px auto;
   padding-left: 10px;
+  background: var(--FormSelect-background);
+  border: 1px solid #b5b9bf;
+  border: 1px solid var(--FormSelect-border);
+  color: #1e1f24;
+  color: var(--color-content-lead);
+  -webkit-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+}
+
+.hiddeSelect {
+  top: 0;
+  left: 0;
+  position: relative;
+  width: 100%;
+  /* height: 100%; */
+  border: none;
+  appearance: none;
+  background-color: transparent;
+  /* color: transparent; */
+}
+
+.hiddeSelect > option {
+  display: block !important;
+  color: black;
+  position: absolute;
+  top: -100%;
+  left: 5rem;
+}
+
+.showOption {
+  background-color: red;
+  bottom: -100%;
+}
+
+.hiddeSelect:focus ~ div::before {
+  outline: 2px solid blue;
+  background-color: red;
+}
+
+.placeHolderTitle:focus {
+  outline: none;
 }
 
 .searchInline {
@@ -75,12 +120,15 @@
   align-items: center;
   border: 1px solid silver;
   border-radius: 5px;
+  height: 2rem;
+  width: 100%;
 }
 
 .searchInlineOne {
-  width: 85%;
+  width: 100%;
   height: 100%;
-  border-right: 1px solid silver;
+  position: relative;
+  /* border-right: 1px solid silver; */
 }
 
 .searchInlineTwo {
@@ -90,24 +138,4 @@
   width: 15%;
   height: 100%;
   background-color: #dfdfe0;
-}
-
-select,
-input {
-  background: var(--FormSelect-background);
-  border: 1px solid #b5b9bf;
-  border: 1px solid var(--FormSelect-border);
-  color: #1e1f24;
-  color: var(--color-content-lead);
-  -webkit-transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-  width: 160px;
-  height: 1.3rem;
-  appearance: none;
-}
-
-select:focus,
-input:focus {
-  outline: none;
 }
