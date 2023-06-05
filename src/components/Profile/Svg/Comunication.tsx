@@ -12,7 +12,7 @@ const Comunication = (props: Props) => {
     >
       <g
         fill="none"
-        stroke="#000"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -24,7 +24,7 @@ const Comunication = (props: Props) => {
       </g>
       <path
         fill="none"
-        stroke="#000"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"

@@ -14,12 +14,13 @@
 
 .profileTitle {
   padding: 1rem;
+  /* margin: 0; */
   border-bottom: 1px solid silver;
 }
 
 .profileContainer {
   display: grid;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 100%;
 }
 
 .profileAside {

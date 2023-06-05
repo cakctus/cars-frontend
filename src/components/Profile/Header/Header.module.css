@@ -13,7 +13,6 @@
     rgb(246, 234, 234) 0%,
     #f6f6f6 100%
   );
-  border-top-left-radius: 5rem;
 }
 
 .cameraHeader {
@@ -24,6 +23,18 @@
 
 .cameraHeader {
   cursor: pointer;
+}
+
+.profilePhotoBlock {
+  position: relative;
+  width: 100%;
+}
+
+.profilePhotoWidth {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+  object-position: center;
 }
 
 .userPhoto {

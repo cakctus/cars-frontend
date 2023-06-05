@@ -1,16 +1,42 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import { createBrowserRouter } from "react-router-dom"
-import App from "../App"
-import ErrorPage from "../components/ErrorPage/ErrorPage"
-import SearchResult from "../components/SearchResult/SearchResult"
-import Reg from "../components/Auth/Reg/Reg"
-import Login from "../components/Auth/Login/Login"
-import Auth from "../components/Auth/Auth"
-import Logout from "../components/Auth/Logout/Logout"
-import FetchUsers from "../components/FetchUsers/FetchUsers"
-import Chat from "../components/Chat/Chat"
-import MainPage from "../components/MainPage/Main"
-import Profile from "../components/Profile/Profile"
+
+const App = lazy(() => import("../App"))
+const ErrorPage = lazy(() => import("../components/ErrorPage/ErrorPage"))
+const SearchResult = lazy(
+  () => import("../components/SearchResult/SearchResult")
+)
+const Auth = lazy(() => import("../components/Auth/Auth"))
+const Logout = lazy(() => import("../components/Auth/Logout/Logout"))
+const FetchUsers = lazy(() => import("../components/FetchUsers/FetchUsers"))
+const Chat = lazy(() => import("../components/Chat/Chat"))
+const MainPage = lazy(() => import("../components/MainPage/Main"))
+const Profile = lazy(() => import("../components/Profile/Profile"))
+const Car = lazy(
+  () => import("../components/CrudAd/create/transport/ads/Car/Car")
+)
+const Bus = lazy(
+  () => import("../components/CrudAd/create/transport/ads/Bus/Bus")
+)
+const Truck = lazy(
+  () => import("../components/CrudAd/create/transport/ads/Truck/Truck")
+)
+const Moto = lazy(
+  () => import("../components/CrudAd/create/transport/ads/Moto/Moto")
+)
+const Agriculture = lazy(
+  () =>
+    import("../components/CrudAd/create/transport/ads/Agrigulture/Agriculture")
+)
+const Trailer = lazy(
+  () => import("../components/CrudAd/create/transport/ads/Trailer/Trailer")
+)
+const Construction = lazy(
+  () =>
+    import(
+      "../components/CrudAd/create/transport/ads/Construction/Construction"
+    )
+)
 
 interface RouteObject {
   path?: string
@@ -27,7 +53,11 @@ interface RouteObject {
 const routes = [
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Suspense>
+        <App />
+      </Suspense>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -68,6 +98,41 @@ const routes = [
       {
         path: "/profile",
         element: <Profile />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/car",
+        element: <Car />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/bus",
+        element: <Bus />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/truck",
+        element: <Truck />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/moto",
+        element: <Moto />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/tractor",
+        element: <Agriculture />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/trailer",
+        element: <Trailer />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/create/construction",
+        element: <Construction />,
         errorElement: <ErrorPage />,
       },
     ],

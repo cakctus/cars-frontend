@@ -1,0 +1,33 @@
+.imgContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.imageBlock {
+  position: relative;
+  cursor: grab;
+}
+
+.imageWidth {
+  object-fit: cover;
+  width: 150px;
+  height: 100px;
+}
+
+.close {
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: rgb(225, 216, 216);
+}
+
+.close:hover {
+  background-color: rgb(102, 101, 99);
+}

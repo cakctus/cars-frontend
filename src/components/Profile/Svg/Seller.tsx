@@ -10,7 +10,7 @@ const Seller = (props: Props) => {
     >
       <path
         fill="none"
-        stroke="#000"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -22,15 +22,15 @@ const Seller = (props: Props) => {
         cy="17.518"
         r="6.414"
         fill="none"
-        stroke="#000"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
         strokeWidth="2"
       ></circle>
       <path
-        fill="none"
-        stroke="#000"
+        fill="#5a5e66"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
@@ -42,15 +42,15 @@ const Seller = (props: Props) => {
         cy="11.515"
         r="9.515"
         fill="none"
-        stroke="#000"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"
         strokeWidth="2"
       ></circle>
       <path
-        fill="none"
-        stroke="#000"
+        fill="#5a5e66"
+        stroke="#5a5e66"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit="10"

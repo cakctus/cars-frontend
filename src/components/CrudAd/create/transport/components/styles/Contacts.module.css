@@ -1,0 +1,57 @@
+.toggleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.toggleLabel {
+  /* Your label styles here */
+}
+
+.toggleInput {
+  /* Your input styles here */
+  display: none;
+}
+
+.toggleSlider {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: gray;
+  transition: background-color 0.3s;
+}
+
+.toggleSlider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background-color: white;
+  left: 2px;
+  bottom: 2px;
+  transition: transform 0.3s;
+}
+
+.toggleSlider:hover {
+  cursor: pointer;
+}
+
+.toggle {
+  background-color: #4caf50; /* Green background color when toggled on */
+}
+
+.toggle:before {
+  transform: translateX(
+    20px
+  ); /* Move the toggle button to the right when toggled on */
+}
+
+.noNumber {
+  text-decoration: line-through;
+}
+
+.hiddeNumber {
+  display: none;
+}

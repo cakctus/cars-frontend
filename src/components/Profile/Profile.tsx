@@ -11,7 +11,7 @@ const Profile = (props: Props) => {
   //   setUser(updatedUser)
   // }
 
-  // const u = localStorage.getItem("user")
+  const u = localStorage.getItem("user")
   // const [user, setUser] = useState<any>(
   //   JSON.parse(localStorage.getItem("user") || "{}")
   // )
@@ -21,9 +21,9 @@ const Profile = (props: Props) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // if (!u) {
-    //   navigate("/")
-    // }
+    if (!u) {
+      navigate("/login")
+    }
     // if (u) {
     //   setUser(JSON.parse(u))
     // // }
@@ -33,9 +33,9 @@ const Profile = (props: Props) => {
   return (
     <div className={styles.profile}>
       <div className={styles.profileBlock}>
-        <h2 className={styles.profileTitle}>Settings</h2>
+        <h2 className={styles.profileTitle}>Profile</h2>
         <div className={styles.profileContainer}>
-          <aside className={styles.profileAside}>
+          {/* <aside className={styles.profileAside}>
             {assideLink.map((link, index: number) => {
               return (
                 <article
@@ -47,7 +47,7 @@ const Profile = (props: Props) => {
                 </article>
               )
             })}
-          </aside>
+          </aside> */}
           <main className={styles.profileMain}>
             {pages.map((page, index) => {
               return (

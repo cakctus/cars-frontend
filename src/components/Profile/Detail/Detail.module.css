@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 80%;
+  margin: 0 auto;
 }
 
 .detailItem {
@@ -22,6 +23,10 @@
   align-content: center;
   height: 100%;
   margin-left: 0.5rem;
+}
+
+.detailItemTitle:hover {
+  cursor: pointer;
 }
 
 .svgDiv {
@@ -97,4 +102,37 @@
   visibility: hidden;
   width: 0;
   height: 0;
+}
+
+.detailItems {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  color: detailItem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  margin-left: 2rem;
+}
+
+.transformSvg {
+  transform: rotate(180deg);
+}
+
+.deleteItems {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.deleteItemSvg {
+  display: none;
+}
+
+.deleteItems:hover .deleteItemSvg {
+  display: block;
+}
+
+.deleteItemSvg:hover {
+  cursor: pointer;
 }
